@@ -1,0 +1,74 @@
+from aiogram import Bot, Dispatcher
+from aiogram.filters import Command
+from aiogram.types import Message
+
+bot = Bot('7335069308:AAFA0eHZzc-Ugnk8ZxhzSZ1WKSHh4k4TSGQ')
+
+dp = Dispatcher()
+
+oven1, oven2 = '21.03'.split('.')
+oven3, oven4 = '20.04'.split('.')
+telec1, telec2 = '21.04'.split('.')
+telec3, telec4 = '20.05'.split('.')
+bliznec1, bliznec2 = '21.05'.split('.')
+bliznec3, bliznec4 = '21.06'.split('.')
+rak1, rak2 = '22.06'.split('.')
+rak3, rak4 = '22.07'.split('.')
+lev1, lev2 = '23.07'.split('.')
+lev3, lev4 = '23.08'.split('.')
+deva1, deva2 = '24.08'.split('.')
+deva3, deva4 = '23.09'.split('.')
+vesi1, vesi2 = '24.09'.split('.')
+vesi3, vesi4 = '23.10'.split('.')
+scorpion1, scorpion2 = '24.10'.split('.')
+scorpion3, scorpion4 = '22.11'.split('.')
+strelec1, strelec2 = '23.11'.split('.')
+strelec3, strelec4 = '21.12'.split('.')
+kozerog1, kozerog2 = '22.12'.split('.')
+kozerog3, kozerog4 = '20.01'.split('.')
+vodoley1, vodoley2 = '21.01'.split('.')
+vodoley3, vodoley4 = '19.02'.split('.')
+ribi1, ribi2 = '20.02'.split('.')
+ribi3, ribi4 = '20.03'.split('.')
+ 
+ 
+@dp.message(Command(commands=["start"]))
+async def process_start_command(message: Message):
+    await message.answer('Привет!Я бот который поможет тебе узнать твой знак зодиака!\nНапиши мне свою дату рождения!')
+
+# Этот хэндлер будет срабатывать на команду "/help"
+@dp.message(Command(commands=['help']))
+async def process_help_command(message: Message):
+    await message.answer(
+        'Напиши мне свою дату рождения я ее не украду ', 'тогда я скажу какой у тебя знак зодиака ')
+# тут вы пишите хендлеры...
+@dp.message()
+async def send_echo(message: Message):
+    p_d, p_m = message.split('.')
+    p_d = int(p_d)
+    p_m = int(p_m)
+    if int(oven1) <= p_d <= int(oven3) and  int(oven2) <= p_m <= int(oven4) :
+        await message.reply(text="oven")
+    elif int(telec1) <= p_d <= int(telec3) and  int(telec2) <= p_m <= int(telec4) :
+        await message.reply(text="telec")
+    elif int(bliznec1) <= p_d <= int(bliznec3) and  int(bliznec2) <= p_m <= int(bliznec4) :
+        await message.reply(text="bliznec")
+    elif int(rak1) <= p_d <= int(rak3) and  int(rak2) <= p_m <= int(rak4) :
+        await message.reply(text="rak")
+    elif int(lev1) <= p_d <= int(lev3) and  int(lev2) <= p_m <= int(lev4) :
+        await message.reply(text="lev")
+    elif int(deva1) <= p_d <= int(deva3) and  int(deva2) <= p_m <= int(deva4) :
+        await message.reply(text="deva")
+    elif int(vesi1) <= p_d <= int(vesi3) and  int(vesi2) <= p_m <= int(vesi4) :
+        await message.reply(text="vesi")         
+    elif int(scorpion1) <= p_d <= int(scorpion3) and  int(scorpion2) <= p_m <= int(scorpion4) :
+        await message.reply(text="scorpion")     
+    elif int(strelec1) <= p_d <= int(strelec3) and  int(strelec2) <= p_m <= int(strelec4) :
+        await message.reply(text="strelec")
+    elif int(kozerog1) <= p_d <= int(kozerog3) and  int(kozerog2) <= p_m <= int(kozerog4) :
+        await message.reply(text="kozerog")      
+    elif int(vodoley1) <= p_d <= int(vodoley3) and  int(vodoley2) <= p_m <= int(vodoley4) :
+        await message.reply(text="vodoley")      
+    elif int(ribi1) <= p_d <= int(ribi3) and  int(ribi2) <= p_m <= int(ribi4) :
+        await message.reply(text="ribi")                
+# после первых строк нужного хендлера
